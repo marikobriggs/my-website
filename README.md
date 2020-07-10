@@ -13,3 +13,8 @@
 * Maybe use template? 
 
 
+## Process 
+Tentatively following [this](https://docs.aws.amazon.com/codedeploy/latest/userguide/tutorials-github.html) tutorial. 
+
+1. Start by doing the following outlined at [this](https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-codedeploy.html) link. Have git installed. 
+2. 
