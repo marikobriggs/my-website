@@ -48,7 +48,7 @@ h1, .h1 {
 
 @media (max-width: 991px) {
   h1, .h1 {
-    font-size: 65px;
+    font-size: 75px;
   }
 }
 
@@ -457,7 +457,7 @@ textarea.form-control {
   color: #fff;
 }
 
-.hero-area {
+.hero-area { 
   padding: 300px 0 200px;
   position: relative;
 }
