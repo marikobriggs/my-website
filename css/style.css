@@ -8,7 +8,7 @@ VERSION:	Versoin Number
 [TABLE OF CONTENTS]
 -------------------------------------------------------------------*/
 /*  typography */
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Roboto:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto:300,400,500,700");
 @font-face {
   font-family: 'BwNistaInt-xBd';
   src: url("../plugins/fonts/BwNistaInt-xBd.woff") format("woff");
@@ -38,7 +38,7 @@ p-lg, .paragraph-lg {
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
-  font-family: "Playfair Display", serif;
+  font-family: "Merriweather", serif;
   line-height: 1.2;
 }
 
@@ -81,7 +81,7 @@ h6, .h6 {
 /* Button style */
 .btn {
   font-size: 22px;
-  font-family: "Playfair Display", serif;
+  font-family: "Merriweather", serif;
   text-transform: capitalize;
   padding: 16px 44px;
   border-radius: 5px;
@@ -327,7 +327,7 @@ a:hover {
 }
 
 .font-secondary {
-  font-family: "Playfair Display", serif !important;
+  font-family: "Merriweather", serif !important;
 }
 
 .font-tertiary {
@@ -776,7 +776,7 @@ blockquote {
 }
 
 .content strong {
-  font-family: "Playfair Display", serif;
+  font-family: "Merriweather", serif;
   font-size: 22px;
   font-weight: normal;
   color: #000;
