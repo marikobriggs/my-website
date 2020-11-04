@@ -423,8 +423,8 @@ textarea.form-control {
   font-weight: bold;
 }
 
-.navbar-dark .navbar-nav .nav-link {
-  color: #fff;
+#bootstrap-overrides .navbar-dark .navbar-nav .nav-link {
+  color: #000051;
 }
 
 .hero-area {
@@ -616,7 +616,7 @@ textarea.form-control {
 /* /portfolio */
 /* testimonial */
 .testimonial-content strong {
-  color: #caa99f;
+  color: #5472d3;
   font-weight: normal;
 }
 
