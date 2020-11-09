@@ -29,7 +29,13 @@ p, .paragraph {
   font-size: 15px;
   line-height: 1.8;
   font-family: "Roboto", sans-serif;
+  margin: 0; 
 }
+
+/* .p-foot {
+  margin: 0 !important;
+} */
+
 p-lg, .paragraph-lg {
   font-size: 22px;
 }
@@ -338,7 +344,10 @@ a:hover {
   color: #c8d5ef;
 }
 
-/* /icon */
+.icon-dark {
+  color: #000051
+}
+
 /* slick slider */
 .slick-dots {
   text-align: center;
