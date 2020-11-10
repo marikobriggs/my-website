@@ -19,6 +19,12 @@
 
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
+
+  <!-- font awesone icons -->
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Overrides -->
+  <body id="bootstrap-overrides">
   
   <!--Favicon-->
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -29,21 +35,21 @@
 <body>
   
 
+<!-- header, navbar area -->
 <header class="navigation fixed-top">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand font-tertiary h3" href="index.html"><img src="images/logo.png" alt="Myself"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+      <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navigation"
       aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span><i class="fa fa-bars icon-dark"></i></span>
     </button>
-
     <div class="collapse navbar-collapse text-center" id="navigation">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
           <a class="nav-link" href="index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.html">about</a>
+          <a class="nav-link" href="about.html" style="text-decoration: underline;">about</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="portfolio.html">Portfolio</a>
@@ -55,23 +61,17 @@
     </div>
   </nav>
 </header>
+<!-- /header, navbar area -->
 
 <!-- page title -->
 <section class="page-title-alt bg-primary position-relative">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="text-white font-tertiary">About Me</h1>
+        <h1 class="font-tertiary">About Me</h1>
       </div>
     </div>
   </div>
-  <!-- background shapes -->
-  <img src="images/illustrations/leaf-bg-top.png" alt="illustrations" class="bg-shape-1 w-100">
-  <img src="images/illustrations/dots-group-sm.png" alt="illustrations" class="bg-shape-2">
-  <img src="images/illustrations/leaf-yellow.png" alt="illustrations" class="bg-shape-3">
-  <img src="images/illustrations/leaf-orange.png" alt="illustrations" class="bg-shape-4">
-  <img src="images/illustrations/dots-group-cyan.png" alt="illustrations" class="bg-shape-5">
-  <img src="images/illustrations/leaf-cyan-lg.png" alt="illustrations" class="bg-shape-6">
 </section>
 <!-- /page title -->
 
@@ -101,173 +101,77 @@
 </section>
 <!-- /about -->
 
-<!-- Work Process -->
-<section class="section">
-  <div class="container">
-    <div class="row justify-content-around">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-title">Work Process</h2>
-      </div>
-      <div class="col-lg-3 col-md-4 text-center hover-shadow pt-3">
-        <div class="">
-          <img src="images/icons/plan.png" class="mb-4" alt="icon">
-          <h4 class="mb-4">Research and Plan</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 text-center hover-shadow pt-3">
-        <img src="images/icons/design.png" class="mb-4" alt="icon">
-        <h4 class="mb-4">Design and Develop</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua.</p>
-      </div>
-      <div class="col-lg-3 col-md-4 text-center hover-shadow pt-3">
-        <img src="images/icons/print.png" class="mb-4" alt="icon">
-        <h4 class="mb-4">Deliver</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ./Work Process -->
-
-<!-- team -->
-<section class="section bg-cover" data-background="images/backgrounds/team-bg.png">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">My Team</h2>
-      </div>
-      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
-        <div class="card text-center">
-          <img src="images/team/member-1.png" class="card-img-top">
-          <div class="card-body">
-            <h4 class="card-title">Jack Schenziwe</h4>
-            <p class="text-light font-secondary">Project Manager</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
-        <div class="card text-center">
-          <img src="images/team/member-2.png" class="card-img-top">
-          <div class="card-body">
-            <h4 class="card-title">Jack Schenziwe</h4>
-            <p class="text-light font-secondary">Project Manager</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
-        <div class="card text-center">
-          <img src="images/team/member-3.png" class="card-img-top">
-          <div class="card-body">
-            <h4 class="card-title">Jack Schenziwe</h4>
-            <p class="text-light font-secondary">Project Manager</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /team -->
-
-<!-- clients -->
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">My Clients</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="client-logo-slider d-flex align-items-center">
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /clients -->
-
-<!-- contact -->
-<section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Contact Info</h2>
-      </div>
-      <div class="col-lg-8 mx-auto">
-        <div class="bg-white rounded text-center p-5 shadow-down">
-          <h4 class="mb-80">Contact Form</h4>
-          <form action="#" class="row">
-            <div class="col-md-6">
-              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
-            </div>
-            <div class="col-md-6">
-              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
-            </div>
-            <div class="col-12">
-              <textarea name="message" id="message" class="form-control px-0 mb-4"
-                placeholder="Type Message Here"></textarea>
-            </div>
-            <div class="col-lg-6 col-10 mx-auto">
-              <button class="btn btn-primary w-100">send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /contact -->
-
 <!-- footer -->
-<footer class="bg-dark footer-section">
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h5 class="text-light">Email</h5>
-          <p class="text-white paragraph-lg font-secondary">steve.fruits@email.com</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Phone</h5>
-          <p class="text-white paragraph-lg font-secondary">+880 2544 658 256</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Address</h5>
-          <p class="text-white paragraph-lg font-secondary">125/A, CA Commercial Area, California, USA</p>
-        </div>
+<footer class="page-footer font-small unique-color-dark">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5">
+
+    <!-- Grid row -->
+    <div class="row mt-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold">Mariko's Portfolio</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>Summarizing my work and the things I'm excited about. </p>
+
       </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Pages</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p class=".p-foot">
+          <i class="fa fa-home mr-3"></i><a href="index.html">Home</a>
+        </p>
+        <p class=".p-foot">
+          <i class="fa fa-comment mr-3"></i><a href="about.html">About</a>
+        </p>
+        <p class=".p-foot">
+          <i class="fa fa-code mr-3"></i><a href="portfolio.html">Portfolio</a>
+        </p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-3 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="text-dark accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>Contact me or see more of my work via LinkedIn or Github.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- grid column, social links -->
+      <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Links</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <i class="fa fa-linkedin mr-3"></i> <a href="https://www.linkedin.com/in/marikobriggs/">in/marikobriggs
+          </a></p>
+        <p>
+          <i class="fa fa-github mr-3"></i> <a href="https://github.com/marikobriggs"> marikobriggs </a></p>
+
+      </div>
+      <!-- end grid column, social links -->
+
     </div>
+    <!-- Grid row -->
+
   </div>
-  <div class="border-top text-center border-dark py-5">
-    <p class="mb-0 text-light">Copyright ©<script>
-        var CurrentYear = new Date().getFullYear()
-        document.write(CurrentYear)
-      </script> a theme by <a href="https://themefisher.com">themefisher.com</a></p>
-  </div>
+  <!-- Footer Links -->
+
 </footer>
 <!-- /footer -->
 
