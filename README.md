@@ -1,20 +1,31 @@
-# My Website
+# My Portfolio Site
 
-## Goals 
-* Host on AWS 
-* Route to custom domain 
-* Automatic updates to site when changes are pushed to repo 
+![homepage](images/readme/home.png)
 
-## Content 
-* Personal portfolio of sorts; an expanded resume? 
+## Description
 
-## Building Blocks
-* Site with HTML, CSS, maybe JS? 
-* Maybe use template? 
+A simple, static portfolio website that showcases me and my work. 
+
+## Table of Contents
+
+* [Demo](#demo)
+* [Tech Stack](#tech-stack)
+* [Authors](#authors)
+
+## Demo
+
+View the application at [marikobriggs.com](https://www.marikobriggs.com)
+
+## Technology Stack
+
+* Based on [this](https://themefisher.com/products/kross-creative-portfolio-template/?edd_action=free_downloads_process_download&download_id=701154&price_ids=&edd_action=free_downloads_process_download&download_id=701154&price_ids=) template and heavily modified with 
+    * [HTML5](https://html.com/html5/)
+    * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+    * [Sass](https://sass-lang.com/)
+    * and custom images 
+* Hosted on [AWS Amplify](https://aws.amazon.com/amplify/)
 
 
-## Process 
-Tentatively following [this](https://docs.aws.amazon.com/codedeploy/latest/userguide/tutorials-github.html) tutorial. 
+## Authors 
 
-1. Start by doing the following outlined at [this](https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-codedeploy.html) link. Have git installed. 
-2. 
+* [Me, Mariko Briggs](https://github.com/marikobriggs)
