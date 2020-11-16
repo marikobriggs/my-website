@@ -120,7 +120,7 @@ h6, .h6 {
   background: white;
 }
 .btn-primary.focus, .btn-primary.active {
-  background: white !important;
+  background: #caa99f !important;
   box-shadow: none !important;
 }
 
@@ -138,9 +138,14 @@ body {
   overflow-x: hidden;
 }
 
+::-moz-selection { /* Code for Firefox */
+  background:#000051;
+  color: #fedbd0;
+}
+
 ::selection {
-  background: white;
-  color: #fff;
+  background:#000051;
+  color: #fedbd0;
 }
 
 /* preloader */
@@ -446,11 +451,18 @@ textarea.form-control {
 
 .hero-area {
   padding: 300px 0 200px;
+  height: 100vh;
+  min-width: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 @media (max-width: 767px) {
   .hero-area {
     padding: 250px 0 150px;
+    width: 100vh;
+    height: 100vh;
+    min-width: 100vh;
+    min-height: 100vh;
     overflow: hidden;
   }
 }
