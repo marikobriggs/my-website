@@ -1,1 +1,6 @@
+# Mac machine specific 
 .DS_Store
+
+# SCSS 
+.map
+style.css.map
