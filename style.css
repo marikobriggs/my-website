@@ -296,6 +296,10 @@ svg {
 .ui-section-header {
   padding-bottom: 1.25rem;
   padding-top: 1.25rem;
+  /* position: -webkit-sticky; Safari */
+  position: sticky;
+  top: 0;
+  background-color: var(--ui-color-background-secondary);
 }
 
 .ui-section-header__layout { justify-content: space-between; }
