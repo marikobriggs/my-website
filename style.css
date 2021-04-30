@@ -44,16 +44,16 @@ TABLE OF CONTENT
   /* COLOR PALETTE */
 
   --ui-color-n-000: #fff;
-  --ui-color-n-025: #fafafa;
-  --ui-color-n-050: #f5f5f5;
-  --ui-color-n-300: #aeaeae;
-  --ui-color-n-500: #353535;
-  --ui-color-n-900: #1a1a1a;
+  --ui-color-n-025: #EAE7DC;
+  --ui-color-n-050: #D8C3A5;
+  --ui-color-n-300: #8E8D8a;
+  --ui-color-n-500: #E98074;
+  --ui-color-n-900: #564E42;
 
   /* BACKGROUND COLOR */
   
-  --ui-color-background-primary  : var(--ui-color-n-000);
-  --ui-color-background-secondary: var(--ui-color-n-050);
+  --ui-color-background-primary  : var(--ui-color-n-025);
+  --ui-color-background-secondary: var(--ui-color-n-025);
   --ui-color-background-tertiary : var(--ui-color-n-025);
 
   /* TYPOGRAPHY COLOR */
