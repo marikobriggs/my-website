@@ -260,6 +260,19 @@ svg {
   padding: .5rem .75rem .5625rem;
 }
 
+
+.ui-component-button-margin {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+/* the following occurs for all screens LARGER than 480px*/
+@media (min-width: 480px){ 
+  .ui-component-button-margin {
+    float: left;
+  }
+}
+
 /*--------------------------------------------------------------
 |
 | 6.3 LIST
@@ -302,7 +315,12 @@ svg {
   background-color: var(--ui-color-background-secondary);
 }
 
-.ui-section-header__layout { justify-content: space-between; }
+/* .ui-section-header__layout { justify-content: space-between; } */
+.ui-section-header__layout {
+  justify-content: space-between;
+}
+
+
 
 /*--------------------------------------------------------------
 |
