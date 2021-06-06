@@ -74,8 +74,9 @@ TABLE OF CONTENT
 
   /* FONT SIZE */
 
-  --ui-typography-h1: 1.9375rem;
-  --ui-typography-h2: 1.5625rem;
+  --ui-typography-h1: 2.5rem;
+  --ui-typography-h2: 2rem;
+  --ui-typography-h3: 1.5rem; 
   --ui-typography-p : 1rem;
   --ui-typography-s : .8125rem;
 
@@ -83,6 +84,7 @@ TABLE OF CONTENT
 
   --ui-typography-h1-leading: 1.2;
   --ui-typography-h2-leading: 1.2;
+  --ui-typography-h3-leading: 1.2; 
   --ui-typography-p-leading : 1.5;
 
   /* MARGIN */
@@ -149,6 +151,7 @@ a {
 
 h1,
 h2,
+h3,
 p,
 ul { margin-top: 0; }
 
@@ -166,6 +169,11 @@ h1 {
 h2 {
   font-size: var(--ui-typography-h2);
   line-height: var(--ui-typography-h2-leading);
+}
+
+h3 {
+  font-size: var(--ui-typography-h3);
+  line-height: var(--ui-typography-h3-leading);
 }
 
 p,
@@ -570,8 +578,9 @@ small {
 
     /* FONT SIZE */
 
-    --ui-typography-h1: 2.1875rem;
-    --ui-typography-h2: 1.75rem;
+    --ui-typography-h1: 2.5rem;
+    --ui-typography-h2: 2rem;
+    --ui-typography-h3: 1.75rem;
     --ui-typography-p : 1.125rem;
     --ui-typography-s : .875rem;
 
