@@ -275,6 +275,7 @@ svg {
   margin-bottom: 5px;
 }
 
+
 /* the following occurs for all screens LARGER than 480px*/
 @media (min-width: 480px){ 
   .ui-component-button-margin {
