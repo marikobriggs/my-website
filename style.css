@@ -1,26 +1,135 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  text-align: center;
+html {
+  font-size: 16px;  /* 1rem = 16px by default */
 }
 
-header {
-  background: #333;
-  color: #fff;
-  padding: 20px;
+@media (min-width: 0) {
+
+  /* General formatting */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+  }
+  
+  header {
+    background: #b5b5b5;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  footer {
+    background: #b5b5b5;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  img {
+    width: clamp(200px, 50%, 600px);
+  }
+
+  .container {
+    padding: clamp(1rem, 2vw, 1rem);
+  }
+
+  /* Footer container styles */
+  .footer {
+    display: flex;
+    flex-wrap: wrap; /* Ensure items wrap on small screens */
+    justify-content: space-between; /* Space items evenly */
+    background-color: #b5b5b5;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  /* Footer sections */
+  .footer-nav, .footer-contact, .footer-social {
+    flex: 1 1 30%; /* Each section takes 30% width by default */
+    margin: 0.5rem;
+  }
+
+  /* Footer links styles */
+  .footer-nav a,
+  .footer-social a {
+    display: block; /* Make the links stack vertically */
+    text-decoration: none;
+    color: white;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+
+  .footer-nav a:hover,
+  .footer-social a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer contact section styles */
+  .footer-contact p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  /* Portfolio container */
+  .portfolio {
+    /* display: flex; */
+    display: block;
+    flex-direction: column; /* Stack images vertically on mobile */
+    gap: 1rem; /* Space between images */
+    padding: 1rem;
+  }
+
+    /* Portfolio item styling */
+  .portfolio-item img {
+    max-width: 100%; /* Ensures images do not overflow display size; ie do not create situations that force right/left scrolling */
+    width: 80%; /* Make images scale to the full width of their container */
+    height: auto; 
+    border-radius: 8px; 
+    object-fit: cover; /* Image fills container without distortion */
+  }
+  .portfolio-header {
+    grid-column: 1 / -1; /* Span all columns to make the header take full width */
+    margin: 0.5rem 0;
+    text-align: center;
+  }
 }
 
-main {
-  padding: 20px;
+/* tablet, etc. */
+@media (min-width: 768px) {
+  .footer {
+      flex-direction: column; /* Stack sections vertically on smaller screens */
+      text-align: left; /* Align text to the left for better readability */
+  }
+
+  .footer-nav, .footer-contact, .footer-social {
+      flex: 1 1 100%; /* Each section takes full width */
+      margin-bottom: 1rem;
+  }
+
+  .portfolio {
+    display: grid; /* Switch to grid layout on larger screens */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
+  }
+
+  .portfolio-item img {
+    width: 100%; 
+    height: auto; 
+    margin: auto;
+  }
 }
 
-footer {
-  background: #333;
-  color: #fff;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+/* desktop, etc. */
+@media (min-width: 1200px) {
+  .portfolio {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
+  }
 }
+
