@@ -35,6 +35,14 @@ html {
   img {
     width: clamp(200px, 50%, 600px);
   }
+  
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
 
   .container {
     padding: clamp(1rem, 2vw, 1rem);
@@ -52,10 +60,11 @@ html {
   }
 
   /* Footer sections */
-  .footer-nav, .footer-contact, .footer-social {
+  /* .footer-nav, .footer-social {
     flex: 1 1 30%; /* Each section takes 30% width by default */
-    margin: 0.5rem;
-  }
+    /* margin: 0.5rem; */
+  /* } */ 
+
 
   /* Footer links styles */
   .footer-nav a,
@@ -72,17 +81,14 @@ html {
     text-decoration: underline;
   }
 
-  /* Footer contact section styles */
-  .footer-contact p {
-    font-size: 1rem;
-    margin: 0.5rem 0;
-  }
 
   /* Portfolio container */
   .portfolio {
     /* display: flex; */
-    display: block;
-    flex-direction: column; /* Stack images vertically on mobile */
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+    grid-template-columns: repeat(2, 1fr);
+    /* flex-direction: column; Stack images vertically on mobile */
     gap: 1rem; /* Space between images */
     padding: 1rem;
   }
@@ -90,9 +96,9 @@ html {
     /* Portfolio item styling */
   .portfolio-item img {
     max-width: 100%; /* Ensures images do not overflow display size; ie do not create situations that force right/left scrolling */
-    width: 80%; /* Make images scale to the full width of their container */
+    width: 100%; /* TODO: maybe revert to 100% ONCE side menu is added  */
     height: auto; 
-    border-radius: 8px; 
+    /* border-radius: 8px;  */
     object-fit: cover; /* Image fills container without distortion */
   }
   .portfolio-header {
