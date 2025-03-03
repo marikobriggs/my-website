@@ -82,27 +82,29 @@ html {
   }
 
 
-  /* Portfolio container */
   .portfolio {
-    /* display: flex; */
-    display: grid;
-    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
-    grid-template-columns: repeat(2, 1fr);
-    /* flex-direction: column; Stack images vertically on mobile */
-    gap: 1rem; /* Space between images */
-    padding: 1rem;
+    column-count: 2; 
+    column-gap: 1rem;
+    margin: 1rem;
   }
 
-    /* Portfolio item styling */
-  .portfolio-item img {
-    max-width: 100%; /* Ensures images do not overflow display size; ie do not create situations that force right/left scrolling */
-    width: 100%; /* TODO: maybe revert to 100% ONCE side menu is added  */
-    height: auto; 
-    /* border-radius: 8px;  */
-    object-fit: cover; /* Image fills container without distortion */
+  /* for two column at mobile */
+  .portfolio-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1rem;
   }
+  
+  .portfolio-item img {
+    display:  block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;  /* Ensures the image fills its container without distortion */
+  }
+
   .portfolio-header {
-    grid-column: 1 / -1; /* Span all columns to make the header take full width */
+    display: block;
+    flex: 0 0 100%;
     margin: 0.5rem 0;
     text-align: center;
   }
@@ -121,21 +123,14 @@ html {
   }
 
   .portfolio {
-    display: grid; /* Switch to grid layout on larger screens */
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
-  }
-
-  .portfolio-item img {
-    width: 100%; 
-    height: auto; 
-    margin: auto;
+    column-count: 3;
   }
 }
 
 /* desktop, etc. */
 @media (min-width: 1200px) {
   .portfolio {
-      grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
+    column-count: 4;
   }
 }
 
