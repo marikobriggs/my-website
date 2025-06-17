@@ -152,6 +152,8 @@ html {
 
   .portfolio-header img {
     width: clamp(75px, 40%, 200px);
+    /* height: clamp(75px, 40%, 140px); */
+    /* width: auto; */
   }
 
   .portfolio-header {
