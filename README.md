@@ -1,1 +1,2 @@
-# My Portfolio Site
+# Portfolio Site
+Simple, responsive art portfolio website. 
