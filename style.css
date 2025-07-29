@@ -46,7 +46,7 @@ html {
 
   :root {
     --sidebar-width: clamp(75px, 15vw, 300px);
-    --main-color: rgb(255, 232, 216);
+    --main-color: rgb(255, 233, 230);
   }
 
   /* Flex container for Sidebar and Main Content */
@@ -163,6 +163,31 @@ html {
     text-align: center;
     /* width: clamp(200px, 50%, 500px); */
   }
+}
+
+/* Lightbox overlay container from chatgpt */ 
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Expanded image, from chatgpt */
+#lightbox img {
+  max-width: 95%;
+  max-height: 95%;
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  cursor: zoom-out;
 }
 
 /* Tablet and larger devices */
