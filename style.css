@@ -182,6 +182,38 @@ html {
   }
 }
 
+.about-container {
+    display: block;
+}
+
+.about-container img {
+  float: left;
+  margin-right: 1.5rem;
+  max-width: 300px;
+  border-radius: 8px;
+}
+
+.about-text {
+  text-align: left;
+  overflow: hidden; /* Ensures container wraps around floated image */
+}
+
+.social-link {
+  margin-top: 1.5rem;
+  text-align: center;
+  clear: both;
+}
+
+.social-link a {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social-link a:hover {
+  text-decoration: underline;
+}
+
 /* Lightbox overlay container from chatgpt */ 
 #lightbox {
   position: fixed;
