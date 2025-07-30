@@ -13,6 +13,7 @@ html {
     text-align: center;
   }
   
+  
   header {
     color: #000;
     width: 100%;
@@ -79,10 +80,27 @@ html {
     margin-bottom: 1rem;
   }
 
+  .sidebar .bold-li {
+    font-weight: bold;
+    color: red;
+    font-size: 1.2rem;
+    margin-bottom: 1rem; 
+  }
+
   .sidebar a {
+    display: block;
     text-decoration: none;
     color: #000;
     font-size: 1.3rem;
+  }
+
+  .sidebar a.active {
+    background-color: var(--red); /* or another accent color */
+    color: rgb(77, 12, 0);
+    font-weight: bold;
+    border-left: 4px solid rgb(77, 12, 0);
+    padding-left: calc(0.5rem - 4px); /* adjust for the border */
+    border-radius: 0 4px 4px 0;
   }
 
   .sidebar a:hover {
@@ -163,6 +181,38 @@ html {
     text-align: center;
     /* width: clamp(200px, 50%, 500px); */
   }
+}
+
+.about-container {
+    display: block;
+}
+
+.about-container img {
+  float: left;
+  margin-right: 1.5rem;
+  max-width: 300px;
+  border-radius: 8px;
+}
+
+.about-text {
+  text-align: left;
+  overflow: hidden; /* Ensures container wraps around floated image */
+}
+
+.social-link {
+  margin-top: 1.5rem;
+  text-align: center;
+  clear: both;
+}
+
+.social-link a {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social-link a:hover {
+  text-decoration: underline;
 }
 
 /* Lightbox overlay container from chatgpt */ 
