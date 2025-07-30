@@ -48,6 +48,7 @@ html {
   :root {
     --sidebar-width: clamp(75px, 15vw, 300px);
     --main-color: rgb(255, 233, 230);
+    --secondary-color-red: rgb(183, 75, 59);
   }
 
   /* Flex container for Sidebar and Main Content */
@@ -95,11 +96,11 @@ html {
   }
 
   .sidebar a.active {
-    background-color: var(--red); /* or another accent color */
-    color: rgb(77, 12, 0);
+    /* background-color: var(--red); or another accent color */
+    color: var(--secondary-color-red); 
     font-weight: bold;
-    border-left: 4px solid rgb(77, 12, 0);
-    padding-left: calc(0.5rem - 4px); /* adjust for the border */
+    /* border-left: 4px solid var(--secondary-color-red);
+    padding-left: calc(0.5rem - 4px); adjust for the border */
     border-radius: 0 4px 4px 0;
   }
 
