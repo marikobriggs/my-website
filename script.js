@@ -1,6 +1,7 @@
 // thank you chatgpt <3
   document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
     const lightboxImg = lightbox.querySelector('img');
 
     document.querySelectorAll('.portfolio-item img').forEach(img => {

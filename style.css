@@ -1,191 +1,98 @@
+:root {
+  --sidebar-width: clamp(75px, 15vw, 300px);
+  --main-color: rgb(255, 233, 230);
+  --secondary-color-red: rgb(183, 75, 59);
+}
+
 html {
   font-size: 16px;
-  scroll-behavior: smooth!important;
+  scroll-behavior: smooth;
 }
 
-@media (min-width: 0) {
-  /* General formatting */
-  body {
-    font-family: Helvetica, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--main-color);
-    text-align: center;
-  }
-  
-  
-  header {
-    color: #000;
-    width: 100%;
-    margin: 0.25rem;
-  }
-  
-  main {
-    padding: 0.5rem;
-    margin-left: calc(var(--sidebar-width) + 1rem); /* Leave space for sidebar */
-  }
-  
-  footer {
-    background: #b5b5b5;
-    color: #fff;
-    padding: 10px;
-    /* width: 100%;  Footer spans the entire width */
-    position: relative;  /* Keep footer in natural flow */
-  }
-  
-  img {
-    width: clamp(100px, 75%, 800px);
-  }
-  
-  .left {
-    float: left;
-  }
-
-  .right {
-    float: right;
-  }
-
-  :root {
-    --sidebar-width: clamp(75px, 15vw, 300px);
-    --main-color: rgb(255, 233, 230);
-    --secondary-color-red: rgb(183, 75, 59);
-  }
-
-  /* Flex container for Sidebar and Main Content */
-  .container {
-    display: flex;
-    flex-direction: column; /* Stack items vertically by default */
-    align-items: flex-start;
-  }
-
-  .sidebar {
-    position: fixed; /* Make sidebar scroll with the page */
-    top: 0; /* Keep sidebar at the top of the page */
-    width: var(--sidebar-width);
-    /* width: fit-content; */
-    height: 100vh; 
-    /* background-color: #333; */
-    background-color: var(--main-color);
-    color: var(--main-color);
-    padding: 0.75rem;
-    overflow: auto;
-  }
-
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .sidebar li {
-    margin-bottom: 1rem;
-  }
-
-  .sidebar .bold-li {
-    font-weight: bold;
-    color: red;
-    font-size: 1.2rem;
-    margin-bottom: 1rem; 
-  }
-
-  .sidebar a {
-    display: block;
-    text-decoration: none;
-    color: #000;
-    font-size: 1.3rem;
-  }
-
-  .sidebar a.active {
-    /* background-color: var(--red); or another accent color */
-    color: var(--secondary-color-red); 
-    font-weight: bold;
-    /* border-left: 4px solid var(--secondary-color-red);
-    padding-left: calc(0.5rem - 4px); adjust for the border */
-    border-radius: 0 4px 4px 0;
-  }
-
-  .sidebar a:hover {
-    text-decoration: underline;
-  }
-
-  .sidebar img {
-    width: clamp(75px, 50%, 400px);
-    padding: 0.5rem;
-  }
-
-  /* Adjust Main Content to account for the sidebar */
-  .main-content {
-    flex: 1;
-    padding: 1rem;
-    background-color: var(--main-color);  
-  }
-
-  /* Footer container styles */
-  .footer {
-    display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: #b5b5b5;
-    color: white;
-    padding: 2rem;
-    text-align: center;
-    margin-top: 20px;
-    width: 100%; /* Ensure footer spans the full width */
-  }
-
-  /* Footer links styles */
-  .footer-nav a,
-  .footer-social a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
-  }
-
-  .footer-nav a:hover,
-  .footer-social a:hover {
-    text-decoration: underline;
-  }
-
-  .portfolio {
-    column-count: 1;
-    column-gap: 1rem;
-    margin: 1rem;
-    padding: 0.5rem;
-  }
-
-  .portfolio-item {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  .portfolio-item img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  .portfolio-header img {
-    width: clamp(75px, 40%, 200px);
-    /* height: clamp(75px, 40%, 140px); */
-    /* width: auto; */
-  }
-
-  .portfolio-header {
-    display: block;
-    flex: 0 0 100%;
-    margin: 0.5rem 0;
-    text-align: center;
-    /* width: clamp(200px, 50%, 500px); */
-  }
+/* General formatting */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-color);
+  text-align: center;
 }
 
+header {
+  color: #000;
+  width: 100%;
+  margin: 0.25rem;
+}
+
+main {
+  padding: 0.5rem;
+  margin-left: calc(var(--sidebar-width) + 1rem);
+}
+
+img {
+  width: clamp(100px, 75%, 800px);
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--main-color);
+  padding: 0.75rem;
+  overflow: auto;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 1rem;
+}
+
+.sidebar .bold-li {
+  font-weight: bold;
+  color: red;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.3rem;
+  transition: color 0.15s ease;
+}
+
+.sidebar a.active {
+  color: var(--secondary-color-red);
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+.sidebar img {
+  width: clamp(75px, 50%, 400px);
+  padding: 0.5rem;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 1rem;
+  background-color: var(--main-color);
+}
+
+/* About page */
 .about-container {
-    display: block;
+  display: block;
 }
 
 .about-container img {
@@ -197,9 +104,10 @@ html {
 
 .about-text {
   text-align: left;
-  overflow: hidden; /* Ensures container wraps around floated image */
+  overflow: hidden;
 }
 
+/* Contact link */
 .social-link {
   margin-top: 1.5rem;
   text-align: center;
@@ -207,7 +115,7 @@ html {
 }
 
 .social-link a {
-  color: var(--red);
+  color: var(--secondary-color-red);
   text-decoration: none;
   font-weight: bold;
 }
@@ -216,7 +124,7 @@ html {
   text-decoration: underline;
 }
 
-/* Lightbox overlay container from chatgpt */ 
+/* Lightbox */
 #lightbox {
   position: fixed;
   top: 0;
@@ -230,7 +138,6 @@ html {
   z-index: 9999;
 }
 
-/* Expanded image, from chatgpt */
 #lightbox img {
   max-width: 95%;
   max-height: 95%;
@@ -241,18 +148,46 @@ html {
   cursor: zoom-out;
 }
 
-/* Tablet and larger devices */
+/* Portfolio */
+.portfolio {
+  column-count: 1;
+  column-gap: 1rem;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+
+.portfolio-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.portfolio-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  cursor: zoom-in;
+  transition: opacity 0.2s ease;
+}
+
+.portfolio-item img:hover {
+  opacity: 0.8;
+}
+
+.portfolio-header img {
+  width: clamp(75px, 40%, 200px);
+}
+
+.portfolio-header {
+  display: block;
+  flex: 0 0 100%;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+/* Tablet */
 @media (min-width: 768px) {
-  .footer {
-    flex-direction: column;
-    text-align: left;
-  }
-
-  .footer-nav, .footer-contact, .footer-social {
-    flex: 1 1 100%;
-    margin-bottom: 1rem;
-  }
-
   .portfolio {
     column-count: 2;
   }
