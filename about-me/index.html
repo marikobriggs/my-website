@@ -1,44 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✶ koyuki portfolio ✶</title>
-    <link rel="stylesheet" href="/style.css">
-    <script src="/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>koyuki — about</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .page-inner { max-width: 720px; padding: 72px 56px 100px; }
+    .page-title { margin-bottom: 48px; }
+
+    .bio { display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: start; margin-bottom: 56px; }
+    .bio-text p { font-size: 15px; line-height: 1.75; color: var(--ink); margin-bottom: 16px; }
+    .bio-text p:last-child { margin-bottom: 0; }
+    .bio-image { position: sticky; top: 32px; }
+    .bio-image img { display: block; width: 100%; height: auto; background: var(--muted-bg); }
+
+    @media (max-width: 768px) {
+      .page-inner { padding: 40px 20px 80px; }
+      .bio { grid-template-columns: 1fr; }
+      .bio-image { position: static; max-width: 180px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Sidebar Navigation -->
-  <nav class="sidebar">
-    <a href="/">
-      <img src="/images/text/koyuki_red.png" alt="koyuki">
-    </a>
-    <ul>
-      <li class="bold-li"><a href="/">home</a></li>
-      <li class="bold-li"><a href="/projects">projects</a></li>
-      <li class="bold-li"><a href="/commissions">hire me!</a></li>
-      <li class="bold-li"><a class="active" href="/about-me">about me</a></li>
+  <aside>
+    <a class="logo" href="/"><img src="/images/text/koyuki_red.png" alt="koyuki"></a>
+    <ul class="sidebar-nav">
+      <li><a href="/">work</a></li>
+      <li><a href="/commissions/">hire me</a></li>
+      <li><a href="/about-me/">about</a></li>
     </ul>
-  </nav>
+    <div class="sidebar-footer">
+      <a href="https://instagram.com/koyuki.png" target="_blank">@koyuki.png</a>
+    </div>
+  </aside>
 
-  <main class="main-content">
-    <h1>About Me</h1>
+  <main>
+    <nav class="mobile-nav">
+      <img src="/images/text/koyuki_red.png" alt="koyuki">
+      <ul class="mobile-nav-links">
+        <li><a href="/">work</a></li>
+        <li><a href="/commissions/">hire me</a></li>
+        <li><a href="/about-me/">about</a></li>
+      </ul>
+    </nav>
 
-    <div class="about-container">
-      <div class="about-text">
-        <p>Mariko Briggs is an experienced and versatile artist based in Seattle, WA. She works in both traditional and digital media, and specializes in acrylic, watercolor, and graphite illustration.</p>
-        <p>Inspired by the vibrance of Seattle's music scene, Mariko has worked with local musicians to design album/single cover art, merch, and social media promo material. More recently, this has expanded to instrument customization.</p>
-        <p>Her commissions are versatile, and as a lifelong lover of fantasy art, she can create custom alterations of your favorite Magic the Gathering or Pokémon card.</p>
-        <p>Contact her through Instagram @koyuki.png to inquire about her services or a new art project that you have in mind. Her process is grounded in collaboration, and she will work with you every step of the way to design the perfect piece for your vision and needs.</p>
+    <div class="page-inner">
+      <h1 class="page-title">about</h1>
+
+      <div class="bio">
+        <div class="bio-text">
+          <p>Mariko Briggs is an artist based in Seattle, WA. She works across traditional and digital media — acrylic, watercolor, graphite, and digital illustration.</p>
+          <p>Inspired by Seattle's music scene, she's worked with local musicians on album and single covers, show posters, merch, and social media visuals. More recently this has expanded into instrument customization.</p>
+          <p>She also takes on custom card alterations for Magic: The Gathering and Pokémon, and is open to pretty much anything else — if you have an idea, she wants to hear it.</p>
+          <p>Her process is collaborative. She'll work with you every step of the way to figure out what you actually want and make it happen.</p>
+        </div>
+        <div class="bio-image">
+          <img src="/images/self_portrait.jpg" alt="self portrait">
+          <!-- swap for a photo or hand-drawn self portrait later -->
+        </div>
+      </div>
+
+<div class="cta">
+        <h2 class="cta-heading">get in touch</h2>
+        <p class="cta-body">Reach out on Instagram to ask about commissions, collaborations, or anything else.</p>
+        <a class="cta-link" href="https://instagram.com/koyuki.png" target="_blank">@koyuki.png on Instagram</a>
+        <p class="cta-note">Instagram is the best way to reach me.</p>
       </div>
     </div>
-
-    <section class="portfolio-section">
-      <div class="portfolio-header" id="contact"><img src="/images/text/contact.png" alt="contact"></div>
-      <div class="social-link"><a href="https://instagram.com/koyuki.png" target="_blank">koyuki.png on Instagram</a></div>
-    </section>
-
   </main>
+
+  <script>
+        const path = window.location.pathname;
+    document.querySelectorAll('.sidebar-nav a, .mobile-nav-links a').forEach(a => {
+      const href = a.getAttribute('href');
+      const active = href === '/' ? (path === '/' || path === '/index.html') : path.startsWith(href);
+      a.classList.toggle('active', active);
+    });
+  </script>
 </body>
 </html>

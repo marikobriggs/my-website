@@ -1,46 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✶ koyuki portfolio ✶</title>
-    <link rel="stylesheet" href="/style.css">
-    <script src="/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>koyuki — hire me</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .page-inner { max-width: 680px; padding: 72px 56px 100px; }
+    .page-title { margin-bottom: 16px; }
+    .page-intro { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 56px; max-width: 480px; }
+
+    .services-heading { font-family: var(--serif); font-size: 22px; font-weight: 400; font-style: italic; color: var(--ink); margin-bottom: 24px; }
+    .service-list { list-style: none; border-top: 1px solid var(--border); }
+    .service-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .service-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+    .service-name { font-size: 16px; font-weight: 500; color: var(--ink); }
+    .service-tag { font-size: 11px; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; flex-shrink: 0; }
+    .service-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 6px; }
+
+    .process { margin-top: 56px; padding: 32px; background: var(--muted-bg); }
+    .process-heading { font-family: var(--serif); font-size: 20px; font-weight: 400; font-style: italic; margin-bottom: 12px; }
+    .process-body { font-size: 14px; color: var(--ink); line-height: 1.75; }
+
+    @media (max-width: 768px) {
+      .page-inner { padding: 40px 20px 80px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Sidebar Navigation -->
-  <nav class="sidebar">
-    <a href="/">
-      <img src="/images/text/koyuki_red.png" alt="koyuki">
-    </a>
-    <ul>
-      <li class="bold-li"><a href="/">home</a></li>
-      <li class="bold-li"><a href="/projects">projects</a></li>
-      <li class="bold-li"><a class="active" href="/commissions">hire me!</a></li>
-      <li class="bold-li"><a href="/about-me">about me</a></li>
+  <aside>
+    <a class="logo" href="/"><img src="/images/text/koyuki_red.png" alt="koyuki"></a>
+    <ul class="sidebar-nav">
+      <li><a href="/">work</a></li>
+      <li><a href="/commissions/">hire me</a></li>
+      <li><a href="/about-me/">about</a></li>
     </ul>
-  </nav>
+    <div class="sidebar-footer">
+      <a href="https://instagram.com/koyuki.png" target="_blank">@koyuki.png</a>
+    </div>
+  </aside>
 
-  <main class="main-content">
-
-    <h1>Commissions</h1>
-
-    <section class="portfolio-section">
-      <h2>What I Offer</h2>
-      <ul>
-        <li>Custom instrument painting</li>
-        <li>Stuff for your band - single/album covers, merch designs, posters, etc.</li>
-        <li>General design + illustration</li>
-        <li>Basically anything - I love working with people to make art so let's chat :)</li>
+  <main>
+    <nav class="mobile-nav">
+      <img src="/images/text/koyuki_red.png" alt="koyuki">
+      <ul class="mobile-nav-links">
+        <li><a href="/">work</a></li>
+        <li><a href="/commissions/">hire me</a></li>
+        <li><a href="/about-me/">about</a></li>
       </ul>
-    </section>
+    </nav>
 
-    <section class="portfolio-section">
-      <div class="portfolio-header" id="contact"><img src="/images/text/contact.png" alt="contact"></div>
-      <div class="social-link"><a href="https://instagram.com/koyuki.png" target="_blank">koyuki.png on Instagram</a></div>
-    </section>
+    <div class="page-inner">
+      <h1 class="page-title">hire me</h1>
+      <p class="page-intro">Open for commissions. Whether you have a detailed brief or just a loose idea, let's figure it out together.</p>
 
+      <h2 class="services-heading">what I do</h2>
+      <ul class="service-list">
+        <li class="service-item">
+          <div class="service-row">
+            <span class="service-name">Show posters &amp; print</span>
+            <span class="service-tag">print</span>
+          </div>
+          <p class="service-desc">Gig posters, flyers, and event materials. Designed to actually look good on a wall.</p>
+        </li>
+        <li class="service-item">
+          <div class="service-row">
+            <span class="service-name">Album &amp; single covers</span>
+            <span class="service-tag">digital / paint</span>
+          </div>
+          <p class="service-desc">Cover art for releases. Digital or traditionally painted — whatever fits the project.</p>
+        </li>
+        <li class="service-item">
+          <div class="service-row">
+            <span class="service-name">Merch &amp; band materials</span>
+            <span class="service-tag">print / digital</span>
+          </div>
+          <p class="service-desc">T-shirt graphics, stickers, social assets, and other band collateral.</p>
+        </li>
+        <li class="service-item">
+          <div class="service-row">
+            <span class="service-name">Instrument customization</span>
+            <span class="service-tag">acrylic</span>
+          </div>
+          <p class="service-desc">Hand-painted guitar bodies, cases, and other instruments. Acrylic on your gear.</p>
+        </li>
+        <li class="service-item">
+          <div class="service-row">
+            <span class="service-name">Card alters</span>
+            <span class="service-tag">acrylic</span>
+          </div>
+          <p class="service-desc">Custom alterations for Magic: The Gathering and Pokémon. Extended art, full repaints, or anything in between.</p>
+        </li>
+        <li class="service-item">
+          <div class="service-row">
+            <span class="service-name">General illustration</span>
+            <span class="service-tag">open</span>
+          </div>
+          <p class="service-desc">Portraits, character work, gifts, and anything else. If you have an idea, reach out.</p>
+        </li>
+      </ul>
+
+      <div class="process">
+        <h3 class="process-heading">how it works</h3>
+        <p class="process-body">Send me a message on Instagram with what you're thinking — even if it's vague. We'll go back and forth until we land on something that feels right. Pricing depends on scope; I'll give you a quote once I understand the project.</p>
+      </div>
+
+      <div class="cta">
+        <h2 class="cta-heading">let's make something</h2>
+        <p class="cta-body">DMs open. No brief too vague, no project too small.</p>
+        <a class="cta-link" href="https://instagram.com/koyuki.png" target="_blank">@koyuki.png on Instagram</a>
+        <p class="cta-note">Instagram is the best way to reach me.</p>
+      </div>
+    </div>
   </main>
+
+  <script>
+        const path = window.location.pathname;
+    document.querySelectorAll('.sidebar-nav a, .mobile-nav-links a').forEach(a => {
+      const href = a.getAttribute('href');
+      const active = href === '/' ? (path === '/' || path === '/index.html') : path.startsWith(href);
+      a.classList.toggle('active', active);
+    });
+  </script>
+
 </body>
 </html>

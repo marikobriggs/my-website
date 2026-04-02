@@ -1,123 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✶ koyuki portfolio ✶</title>
-    <link rel="stylesheet" href="/style.css">
-    <script src="/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>koyuki</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+/* ── FILTER BAR ──────────────────────────────────── */
+    .filter-bar {
+      position: sticky; top: 0; z-index: 90; background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 40px; height: 56px;
+      transition: box-shadow 0.2s;
+    }
+    .filter-bar.scrolled { box-shadow: 0 2px 12px rgba(28,21,16,0.07); }
+    .medium-tabs { display: flex; height: 100%; }
+    .tab {
+      height: 100%; padding: 0 18px; background: transparent; border: none;
+      border-bottom: 2px solid transparent; font-family: var(--sans); font-size: 13px;
+      font-weight: 400; color: var(--muted); cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    }
+    .tab:hover { color: var(--ink); }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── GALLERY ─────────────────────────────────────── */
+    .gallery-wrap { padding: 48px 40px 80px; }
+    .medium-section { margin-bottom: 56px; }
+    .section-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .medium-heading { font-family: var(--serif); font-size: 22px; font-weight: 400; font-style: italic; color: var(--ink); }
+
+    .grid { column-count: 3; column-gap: 16px; }
+
+    .item {
+      break-inside: avoid; display: block; width: 100%;
+      margin-bottom: 16px; cursor: pointer;
+      transition: opacity 0.18s ease;
+    }
+    .item.hidden { display: none; }
+    .item.fading { opacity: 0; pointer-events: none; }
+
+    .item-img { overflow: hidden; background: var(--muted-bg); position: relative; }
+    .item-img img { display: block; width: 100%; height: auto; transition: transform 0.35s ease; }
+    .item:hover .item-img img { transform: scale(1.03); }
+
+    /* series badge */
+    .series-badge {
+      position: absolute; bottom: 8px; right: 8px;
+      background: rgba(28,21,16,0.65); color: var(--bg);
+      font-size: 10px; font-weight: 500; letter-spacing: 0.04em;
+      padding: 3px 7px; border-radius: 2px;
+      pointer-events: none;
+    }
+
+    .item-caption { padding: 9px 12px 11px; background: var(--muted-bg); }
+    .caption-title { display: block; font-size: 13px; font-weight: 500; color: var(--ink); }
+    .caption-meta  { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; letter-spacing: 0.03em; }
+
+    @media (max-width: 1100px) { .grid { column-count: 2; } }
+    @media (max-width: 560px)  { .grid { column-count: 1; } }
+
+    /* ── LIGHTBOX ────────────────────────────────────── */
+    #lightbox {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(28,21,16,0.9); padding: 40px 24px;
+      overflow-y: auto; align-items: flex-start; justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+
+    #lightbox-inner {
+      background: var(--bg); max-width: 800px; width: 100%;
+      margin: auto; cursor: default; box-shadow: 0 32px 80px rgba(28,21,16,0.4);
+    }
+    #lightbox-img-wrap {
+      background: var(--muted-bg); display: flex; align-items: center; justify-content: center;
+      padding: 20px; position: relative;
+    }
+    #lightbox-img-wrap img { display: block; width: 100%; max-height: 68vh; object-fit: contain; }
+
+    /* carousel arrows — sit inside the image area */
+    .lb-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(28,21,16,0.45); border: none; color: var(--bg);
+      width: 40px; height: 40px; border-radius: 2px;
+      font-size: 20px; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s; z-index: 10;
+    }
+    .lb-arrow:hover { background: rgba(28,21,16,0.75); }
+    .lb-arrow.hidden { display: none; }
+    #lb-prev { left: 12px; }
+    #lb-next { right: 12px; }
+
+    #lightbox-meta { padding: 20px 28px 28px; }
+    #lb-title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 6px; }
+    #lb-title { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.01em; }
+    #lb-counter { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; white-space: nowrap; }
+    #lb-counter:empty { display: none; }
+    #lb-info { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    #lb-desc { font-size: 14px; line-height: 1.7; color: var(--ink); margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+    #lb-desc:empty { display: none; }
+
+    #lightbox-close {
+      position: absolute; top: 20px; right: 24px; background: none; border: none;
+      font-size: 22px; color: var(--bg); cursor: pointer; opacity: 0.7; transition: opacity 0.15s; line-height: 1; z-index: 1001;
+    }
+    #lightbox-close:hover { opacity: 1; }
+
+    /* ── EMPTY STATE ─────────────────────────────────── */
+    .empty-state { display: none; padding: 80px 40px; text-align: center; color: var(--muted); font-style: italic; font-family: var(--serif); font-size: 18px; }
+    .empty-state.visible { display: block; }
+
+    /* ── MOBILE ──────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .filter-bar { position: static; padding: 0 20px; }
+      .medium-tabs { flex-wrap: wrap; height: auto; padding: 10px 0; }
+      .tab { height: 36px; padding: 0 12px; font-size: 12px; }
+      .gallery-wrap { padding: 24px 20px 60px; }
+      #lightbox { padding: 16px 12px; }
+      #lightbox-meta { padding: 16px 20px 24px; }
+      .lb-arrow { width: 36px; height: 36px; font-size: 18px; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Sidebar Navigation -->
-  <nav class="sidebar">
-    <a href="/">
-      <img src="/images/text/koyuki_red.png" alt="koyuki">
-    </a>
-    <ul>
-      <li class="bold-li"><a class="active" href="/">home</a></li>
-        <li><a href="#2026">2026</a></li>  
-        <li><a href="#2025">2025</a></li>
-        <li><a href="#2024">2024</a></li>
-        <li><a href="#2023">2023</a></li>
-
-        <!-- <li><a href="#earlier">earlier</a></li> -->
-        <!-- <li><a href="#cafe">cafe doodling</a></li> -->
-      <li class="bold-li"><a href="projects/">projects</a></li>
-      <li class="bold-li"><a href="commissions/">hire me!</a></li>
-      <li class="bold-li"><a href="about-me/">about me</a></li>
+  <aside>
+    <a class="logo" href="/"><img src="/images/text/koyuki_red.png" alt="koyuki"></a>
+    <ul class="sidebar-nav">
+      <li><a href="/">work</a></li>
+      <li><a href="/commissions/">hire me</a></li>
+      <li><a href="/about-me/">about</a></li>
     </ul>
-  </nav>
+    <div class="sidebar-footer">
+      <a href="https://instagram.com/koyuki.png" target="_blank">@koyuki.png</a>
+    </div>
+  </aside>
 
-  <main class="main-content">
+  <main>
+    <nav class="mobile-nav">
+      <img src="/images/text/koyuki_red.png" alt="koyuki">
+      <ul class="mobile-nav-links">
+        <li><a href="/">work</a></li>
+        <li><a href="/commissions/">hire me</a></li>
+        <li><a href="/about-me/">about</a></li>
+      </ul>
+    </nav>
 
-    <section class="portfolio-section" >
-      <div class="portfolio-header" id="2026"><img src="/images/text/2026_red.png" alt="2026 art"></div>
-      <div class="portfolio">
-        <div class="portfolio-item"><img src="/images/bonk_cow_cover.PNG" alt="bonk single cover for cows"></div>
+    <div class="filter-bar">
+      <div class="medium-tabs">
+        <button class="tab active" data-medium="all">all</button>
+        <button class="tab" data-medium="print">posters &amp; print</button>
+        <button class="tab" data-medium="painting">painting</button>
+        <button class="tab" data-medium="drawing">drawing</button>
+        <button class="tab" data-medium="card-alters">card alters</button>
       </div>
-    </section>
+    </div>
 
-    <section class="portfolio-section" >
-      <div class="portfolio-header" id="2025"><img src="/images/text/2025_red.png" alt="2025 art"></div>
-      <div class="portfolio">
-        <div class="portfolio-item"><img src="/images/2026_02_17_bonk_at_nectar.PNG" alt="bonk nectar show poster"></div>
-        <div class="portfolio-item"><img src="/images/2026_01_17_jamn_barboza.PNG" alt="jamn barboza show poster"></div>
-        <div class="portfolio-item"><img src="/images/mtg_meditation_puzzle.PNG" alt="magic the gathering alter meditation puzzle"></div>
-        <div class="portfolio-item"><img src="/images/mtg_naturalize.PNG" alt="magic the gathering alter naturalize"></div>
-        <div class="portfolio-item"><img src="/images/mtg_quickling.PNG" alt="magic the gathering alter quickling"></div>
-        <div class="portfolio-item"><img src="/images/2026_01_23_sunset_heavy_bloom.png" alt="heavy bloom sunset show poster"></div>
-        <div class="portfolio-item"><img src="/images/09_30_2025_jamn_oktiger_logo.PNG" alt="jamn ok tiger tims tavern show poster"></div>
-        <div class="portfolio-item"><img src="/images/10_9_25_hidden_hall_poster.png" alt="bonk hidden hall show poster"></div>
-        <div class="portfolio-item"><img src="/images/tomato_town.jpeg" alt="watercolor of tomatoes"></div>
-        <div class="portfolio-item"><img src="/images/matt_hole.jpg" alt="watercolor of matt's"></div>
-        <div class="portfolio-item"><img src="/images/nicole.jpg" alt="watercolor of nicole my love"></div>
-        <div class="portfolio-item"><img src="/images/matt_bathroom.jpg" alt="acrylic of matt's bathroom"></div>
-        <div class="portfolio-item"><img src="/images/matt.jpg" alt="graphite of matt"></div>
-        <div class="portfolio-item"><img src="/images/tipping_the_scales.png" alt="digital of matt single cover"></div>
-        <div class="portfolio-item"><img src="/images/korean.jpg" alt="watercolor of Korean food"></div>
-        <div class="portfolio-item"><img src="/images/cherry_duck.jpg" alt="acrylic of duck"></div>
-        <!-- <div class="portfolio-item"><img src="/images/self_portrait.jpg" alt="graphite/embroidery of me"></div> -->
-      </div>
-    </section>
+    <div class="gallery-wrap">
 
-    <section class="portfolio-section" >
-      <div class="portfolio-header" id="2024"><img src="/images/text/2024_red.png" alt="2024 art"></div>
-      <div class="portfolio">
-        <div class="portfolio-item"><img src="/images/fig.jpg" alt="graphite extended figure drawing"></div>
-        <div class="portfolio-item"><img src="/images/nun.jpg" alt="graphite nun"></div>
-        <div class="portfolio-item"><img src="/images/portrait.jpg" alt="graphite/charcoal figure drawing"></div>
-        <div class="portfolio-item"><img src="/images/dango.jpg" alt="watercolor of dango"></div>
-        <div class="portfolio-item"><img src="/images/bug.jpg" alt="graphite bug"></div>
-      </div>
-    </section>
+      <section class="medium-section" data-section="print">
+        <div class="section-header">
+          <h2 class="medium-heading">posters &amp; print</h2>
+        </div>
+        <div class="grid">
 
-    <section class="portfolio-section" >
-      <div class="portfolio-header" id="2023"><img src="/images/text/2023_red.png" alt="2023 art"></div>
-      <div class="portfolio">
-        <div class="portfolio-item"><img src="/images/cranes.jpg" alt="acrylic crane"></div>
-        <div class="portfolio-item"><img src="/images/duck.jpg" alt="acrylic duck"></div>
-      </div>
-    </section>
+          <!-- <div class="item" data-medium="print" data-year="2025"
+            data-title="Macaroni"
+            data-info="Character design · Digital · 2025"
+            data-desc="Character created for JAMN's 'Macaroni' single promotion. Designed three poses to be used across social media and merch — the brief was loose and we developed the character's personality together over a few rounds."
+            data-images='["/images/mac_guitar_transparent.png","/images/mac_handhold_transparent.PNG","/images/mac_surfer_transparent.png"]'>
+            <div class="item-img">
+              <img src="/images/mac_guitar_transparent.png" alt="Macaroni character">
+            </div>
+            <div class="item-caption"><span class="caption-title">Macaroni</span><span class="caption-meta">Character design · 2025</span></div>
+          </div> -->
 
-    <!-- <section class="portfolio-section" >
-      <div class="portfolio-header" id="earlier"><img src="/images/text/earlier_red.png" alt="earlier art"></div>
-      <div class="portfolio">
-        <div class="portfolio-item"><img src="/images/rainier.jpg" alt="oil pastel of Tahoma"></div>
-      </div>
-    </section> -->
+          <div class="item" data-medium="print" data-year="2026"
+            data-title="Cows"
+            data-info="Single cover · Digital · 2026"
+            data-desc="Single cover for Bonk. The band came to me wanting something that felt handmade and a little absurd — we landed on the cow after a few rounds of sketches. Designed entirely digitally but with a deliberately rough, hand-illustrated look.">
+            <div class="item-img"><img loading="lazy" src="/images/bonk_cow_cover.PNG" alt="Bonk single cover"></div>
+            <div class="item-caption"><span class="caption-title">Cows</span><span class="caption-meta">Single cover · 2026</span></div>
+          </div>
 
-    <!-- <section class="portfolio-section" >
-      <div class="portfolio-header" id="cafe"><img src="images/text/cafe_doodling_red.png" alt="cafe doodling"></div>
-      <div class="portfolio">
-        <div class="portfolio-item"><img src="/imagescafe1.jpg" alt="cafe drawing 1"></div>
-        <div class="portfolio-item"><img src="/imagescafe2.jpg" alt="cafe drawing 2"></div>
-        <div class="portfolio-item"><img src="/imagescafe3.jpg" alt="cafe drawing 3"></div>
-        <div class="portfolio-item"><img src="/imagescafe4.jpg" alt="cafe drawing 4"></div>
-        <div class="portfolio-item"><img src="/imagescafe5.jpg" alt="cafe drawing 5"></div>
-        <div class="portfolio-item"><img src="/imagescafe6.jpg" alt="cafe drawing 6"></div>
-      </div>
-    </section> -->
+          <div class="item" data-medium="print" data-year="2025"
+            data-title="Bonk at Nectar" data-info="Show poster · Digital · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/2026_02_17_bonk_at_nectar.PNG" alt="Bonk Nectar poster"></div>
+            <div class="item-caption"><span class="caption-title">Bonk at Nectar</span><span class="caption-meta">Show poster · 2025</span></div>
+          </div>
 
-    <!-- <section class="portfolio-section" >
-      <div class="portfolio-header" id="macaroni"><img src="/imagestext/macaroni.png" alt="macaroni art"></div>
-      <div class="portfolio">
-        <div class="portfolio-item"><img src="/imagesmac_guitar_transparent.png" alt="macaroni playing guitar"></div>
-        <div class="portfolio-item"><img src="/imagesmac_handhold_transparent.PNG" alt="macaroni holding hands"></div>
-        <div class="portfolio-item"><img src="/imagesmac_surfer_transparent.png" alt="macaroni surfing"></div>
-      </div>
-    </section> -->
+          <div class="item" data-medium="print" data-year="2025"
+            data-title="JAMN at Barboza" data-info="Show poster · Digital · 2025"
+            data-desc="Poster for JAMN's Barboza show. They wanted a warm, summery feel with a nod to the venue's aesthetic. Iterated through a few type treatments before landing on the layered text approach.">
+            <div class="item-img"><img loading="lazy" src="/images/2026_01_17_jamn_barboza.PNG" alt="JAMN Barboza poster"></div>
+            <div class="item-caption"><span class="caption-title">JAMN at Barboza</span><span class="caption-meta">Show poster · 2025</span></div>
+          </div>
 
-    <section class="portfolio-section" >
-      <div class="portfolio-header" id="contact"><img src="/images/text/contact.png" alt="contact"></div>
-      <div class="social-link"><a href="https://instagram.com/koyuki.png" target="_blank">koyuki.png on Instagram</a></div>
-    </section>
+          <div class="item" data-medium="print" data-year="2025"
+            data-title="Heavy Bloom Sunset" data-info="Show poster · Digital · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/2026_01_23_sunset_heavy_bloom.png" alt="Heavy Bloom Sunset poster"></div>
+            <div class="item-caption"><span class="caption-title">Heavy Bloom at Sunset Tavern</span><span class="caption-meta">Show poster · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="print" data-year="2025"
+            data-title="JAMN at OK Tiger" data-info="Show poster · Digital · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/09_30_2025_jamn_oktiger_logo.PNG" alt="JAMN OK Tiger poster"></div>
+            <div class="item-caption"><span class="caption-title">JAMN at Tim's Tavern</span><span class="caption-meta">Show poster · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="print" data-year="2025"
+            data-title="Bonk at Hidden Hall" data-info="Show poster · Digital · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/10_9_25_hidden_hall_poster.png" alt="Bonk Hidden Hall poster"></div>
+            <div class="item-caption"><span class="caption-title">Bonkonomics at Hidden Hall</span><span class="caption-meta">Show poster · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="print" data-year="2025"
+            data-title="Tipping the Scales" data-info="Single cover · Digital · 2025"
+            data-desc="Single cover for Matt's release 'Tipping the Scales.' A more personal commission — we went through many directions before settling on this one. The brief was loose and the process was very collaborative.">
+            <div class="item-img"><img loading="lazy" src="/images/tipping_the_scales.png" alt="Matt single cover digital"></div>
+            <div class="item-caption"><span class="caption-title">Tipping the Scales</span><span class="caption-meta">Single cover · 2025</span></div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="medium-section" data-section="painting">
+        <div class="section-header">
+          <h2 class="medium-heading">painting</h2>
+        </div>
+        <div class="grid">
+
+          <div class="item" data-medium="painting" data-year="2025" data-title="Tomato Town" data-info="Watercolor · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/tomato_town.jpeg" alt="Watercolor of tomatoes"></div>
+            <div class="item-caption"><span class="caption-title">Tomato Town</span><span class="caption-meta">Watercolor · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="painting" data-year="2025" data-title="Matt's Hole" data-info="Watercolor · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/matt_hole.jpg" alt="Watercolor of Matt's hole"></div>
+            <div class="item-caption"><span class="caption-title">Matt's Hole</span><span class="caption-meta">Watercolor · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="painting" data-year="2025" data-title="Nicole" data-info="Watercolor · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/nicole.jpg" alt="Watercolor of Nicole"></div>
+            <div class="item-caption"><span class="caption-title">Nicole</span><span class="caption-meta">Watercolor · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="painting" data-year="2025" data-title="Matt's Bathroom" data-info="Acrylic · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/matt_bathroom.jpg" alt="Acrylic of Matt's bathroom"></div>
+            <div class="item-caption"><span class="caption-title">Matt's Bathroom</span><span class="caption-meta">Acrylic · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="painting" data-year="2025" data-title="Cherry Duck" data-info="Acrylic · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/cherry_duck.jpg" alt="Acrylic duck"></div>
+            <div class="item-caption"><span class="caption-title">Cherry Duck</span><span class="caption-meta">Acrylic · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="painting" data-year="2025" data-title="Korean Food" data-info="Watercolor · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/korean.jpg" alt="Watercolor of Korean food"></div>
+            <div class="item-caption"><span class="caption-title">Korean Food</span><span class="caption-meta">Watercolor · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="painting" data-year="2024" data-title="Dango" data-info="Watercolor · 2024">
+            <div class="item-img"><img loading="lazy" src="/images/dango.jpg" alt="Watercolor of dango"></div>
+            <div class="item-caption"><span class="caption-title">Dango</span><span class="caption-meta">Watercolor · 2024</span></div>
+          </div>
+
+          <div class="item" data-medium="painting" data-year="2023" data-title="Cranes" data-info="Acrylic · 2023">
+            <div class="item-img"><img loading="lazy" src="/images/cranes.jpg" alt="Acrylic cranes"></div>
+            <div class="item-caption"><span class="caption-title">Cranes</span><span class="caption-meta">Acrylic · 2023</span></div>
+          </div>
+
+          <div class="item" data-medium="painting" data-year="2023" data-title="Duck" data-info="Acrylic · 2023">
+            <div class="item-img"><img loading="lazy" src="/images/duck.jpg" alt="Acrylic duck"></div>
+            <div class="item-caption"><span class="caption-title">Duck</span><span class="caption-meta">Acrylic · 2023</span></div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="medium-section" data-section="drawing">
+        <div class="section-header">
+          <h2 class="medium-heading">drawing</h2>
+        </div>
+        <div class="grid">
+
+          <div class="item" data-medium="drawing" data-year="2025" data-title="Matt" data-info="Graphite · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/matt.jpg" alt="Graphite of Matt"></div>
+            <div class="item-caption"><span class="caption-title">Matt</span><span class="caption-meta">Graphite · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="drawing" data-year="2024" data-title="Figure Drawing" data-info="Graphite · 2024">
+            <div class="item-img"><img loading="lazy" src="/images/fig.jpg" alt="Graphite figure drawing"></div>
+            <div class="item-caption"><span class="caption-title">Figure Drawing</span><span class="caption-meta">Graphite · 2024</span></div>
+          </div>
+
+          <div class="item" data-medium="drawing" data-year="2024" data-title="Nun" data-info="Graphite · 2024">
+            <div class="item-img"><img loading="lazy" src="/images/nun.jpg" alt="Graphite nun"></div>
+            <div class="item-caption"><span class="caption-title">Nun</span><span class="caption-meta">Graphite · 2024</span></div>
+          </div>
+
+          <!-- <div class="item" data-medium="drawing" data-year="2024" data-title="Portrait" data-info="Graphite &amp; charcoal · 2024">
+            <div class="item-img"><img loading="lazy" src="/images/portrait.jpg" alt="Graphite/charcoal figure drawing"></div>
+            <div class="item-caption"><span class="caption-title">Portrait</span><span class="caption-meta">Graphite &amp; charcoal · 2024</span></div>
+          </div>
+
+          <div class="item" data-medium="drawing" data-year="2024" data-title="Bug" data-info="Graphite · 2024">
+            <div class="item-img"><img loading="lazy" src="/images/bug.jpg" alt="Graphite bug"></div>
+            <div class="item-caption"><span class="caption-title">Bug</span><span class="caption-meta">Graphite · 2024</span></div>
+          </div> -->
+
+          <!-- <div class="item" data-medium="drawing" data-year="2025"
+            data-title="Cafe Doodles"
+            data-info="Pencil · 2025"
+            data-desc="Doodling in local cafes."
+            data-images='["/images/cafe1.jpg","/images/cafe2.jpg","/images/cafe3.jpg","/images/cafe4.jpg","/images/cafe5.jpg","/images/cafe6.jpg"]'>
+            <div class="item-img">
+              <img src="/images/cafe1.jpg" alt="Cafe doodles">
+            </div>
+            <div class="item-caption"><span class="caption-title">Cafe Doodles</span><span class="caption-meta">Pencil · 2025</span></div>
+          </div> -->
+
+        </div>
+      </section>
+
+      <section class="medium-section" data-section="card-alters">
+        <div class="section-header">
+          <h2 class="medium-heading">card alters</h2>
+        </div>
+        <div class="grid">
+
+          <div class="item" data-medium="card-alters" data-year="2025"
+            data-title="Meditation Puzzle" data-info="MTG card alter · 2025"
+            data-desc="Custom alter for a client's personal collection. Extended the original card art outward, painting in acrylic directly on the card surface. The brief was to keep the mood of the original while making it feel more painterly.">
+            <div class="item-img"><img loading="lazy" src="/images/mtg_meditation_puzzle.PNG" alt="MTG alter: Meditation Puzzle"></div>
+            <div class="item-caption"><span class="caption-title">Meditation Puzzle</span><span class="caption-meta">MTG alter · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="card-alters" data-year="2025"
+            data-title="Naturalize" data-info="MTG card alter · 2025"
+            data-desc="Card alter commission. Extended the forest/nature border elements outward and added a hand-painted botanical motif to tie into the card's theme.">
+            <div class="item-img"><img loading="lazy" src="/images/mtg_naturalize.PNG" alt="MTG alter: Naturalize"></div>
+            <div class="item-caption"><span class="caption-title">Naturalize</span><span class="caption-meta">MTG alter · 2025</span></div>
+          </div>
+
+          <div class="item" data-medium="card-alters" data-year="2025"
+            data-title="Quickling" data-info="MTG card alter · 2025">
+            <div class="item-img"><img loading="lazy" src="/images/mtg_quickling.PNG" alt="MTG alter: Quickling"></div>
+            <div class="item-caption"><span class="caption-title">Quickling</span><span class="caption-meta">MTG alter · 2025</span></div>
+          </div>
+
+        </div>
+      </section>
+
+      <p class="empty-state">nothing here for that filter combo</p>
+    </div>
   </main>
 
   <div id="lightbox">
-  <img src="" alt="Expanded Image">
+    <button id="lightbox-close" aria-label="close">✕</button>
+    <div id="lightbox-inner">
+      <div id="lightbox-img-wrap">
+        <button class="lb-arrow hidden" id="lb-prev" aria-label="previous">&#8249;</button>
+        <img src="" alt="">
+        <button class="lb-arrow hidden" id="lb-next" aria-label="next">&#8250;</button>
+      </div>
+      <div id="lightbox-meta">
+        <div id="lb-title-row">
+          <h3 id="lb-title"></h3>
+          <span id="lb-counter"></span>
+        </div>
+        <p id="lb-info"></p>
+        <p id="lb-desc"></p>
+      </div>
+    </div>
   </div>
 
+  <script>
+    // ── filtering ──────────────────────────────────────
+    let activeMedium = 'all';
+
+    const tabs       = document.querySelectorAll('.tab');
+    const sections   = document.querySelectorAll('.medium-section');
+    const allItems   = document.querySelectorAll('.item');
+    const emptyState = document.querySelector('.empty-state');
+    const filterBar  = document.querySelector('.filter-bar');
+
+    function applyFilters() {
+      // fade out all visible items
+      allItems.forEach(item => { if (!item.classList.contains('hidden')) item.classList.add('fading'); });
+
+      setTimeout(() => {
+        let anyVisible = false;
+        sections.forEach(section => {
+          const visible = activeMedium === 'all' || activeMedium === section.dataset.section;
+          section.style.display = visible ? '' : 'none';
+          if (visible) anyVisible = true;
+        });
+        emptyState.classList.toggle('visible', !anyVisible);
+
+        // fade back in
+        allItems.forEach(item => item.classList.remove('fading'));
+      }, 160);
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        activeMedium = tab.dataset.medium;
+        applyFilters();
+      });
+    });
+
+    // scroll shadow on filter bar
+    window.addEventListener('scroll', () => {
+      filterBar.classList.toggle('scrolled', window.scrollY > 8);
+    }, { passive: true });
+
+    // ── series badges ──────────────────────────────────
+    document.querySelectorAll('.item[data-images]').forEach(item => {
+      const images = JSON.parse(item.dataset.images);
+      if (images.length > 1) {
+        const badge = document.createElement('span');
+        badge.className = 'series-badge';
+        badge.textContent = images.length + ' images';
+        item.querySelector('.item-img').appendChild(badge);
+      }
+    });
+
+    // ── lightbox ───────────────────────────────────────
+    const lightbox  = document.getElementById('lightbox');
+    const lbImg     = lightbox.querySelector('#lightbox-img-wrap img');
+    const lbTitle   = document.getElementById('lb-title');
+    const lbInfo    = document.getElementById('lb-info');
+    const lbDesc    = document.getElementById('lb-desc');
+    const lbCounter = document.getElementById('lb-counter');
+    const lbClose   = document.getElementById('lightbox-close');
+    const lbPrev    = document.getElementById('lb-prev');
+    const lbNext    = document.getElementById('lb-next');
+
+    let currentImages = [];
+    let currentIndex  = 0;
+
+    function showImage(index) {
+      currentIndex = index;
+      lbImg.src = currentImages[index];
+      const total = currentImages.length;
+      lbCounter.textContent = total > 1 ? (index + 1) + ' / ' + total : '';
+      lbPrev.classList.toggle('hidden', total <= 1 || index === 0);
+      lbNext.classList.toggle('hidden', total <= 1 || index === total - 1);
+    }
+
+    function showPrev() { if (currentIndex > 0) showImage(currentIndex - 1); }
+    function showNext() { if (currentIndex < currentImages.length - 1) showImage(currentIndex + 1); }
+
+    document.querySelectorAll('.item').forEach(item => {
+      item.addEventListener('click', () => {
+        const raw = item.dataset.images;
+        currentImages = raw ? JSON.parse(raw) : [item.querySelector('img').src];
+
+        lbTitle.textContent = item.dataset.title || '';
+        lbInfo.textContent  = item.dataset.info  || '';
+        lbDesc.textContent  = item.dataset.desc  || '';
+
+        showImage(0);
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    lbPrev.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+    lbNext.addEventListener('click', e => { e.stopPropagation(); showNext(); });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowLeft')  showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    });
+
+    // active nav link
+        const path = window.location.pathname;
+    document.querySelectorAll('.sidebar-nav a, .mobile-nav-links a').forEach(a => {
+      const href = a.getAttribute('href');
+      const active = href === '/' ? (path === '/' || path === '/index.html') : path.startsWith(href);
+      a.classList.toggle('active', active);
+    });
+
+    // swipe support (mobile)
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 48) diff > 0 ? showNext() : showPrev();
+    });
+  </script>
 </body>
 </html>
