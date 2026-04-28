@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>koyuki</title>
   <link rel="stylesheet" href="/style.css">
+  <link rel="preload" as="image" href="/images/text/koyuki_red.webp">
   <style>
 /* ── FILTER BAR ──────────────────────────────────── */
     .filter-bar {
@@ -126,7 +127,7 @@
 <body>
 
   <aside>
-    <a class="logo" href="/"><img src="/images/text/koyuki_red.png" alt="koyuki"></a>
+    <a class="logo" href="/"><img src="/images/text/koyuki_red.webp" alt="koyuki" fetchpriority="high"></a>
     <ul class="sidebar-nav">
       <li><a href="/">work</a></li>
       <li><a href="/commissions/">hire me</a></li>
@@ -139,7 +140,7 @@
 
   <main>
     <nav class="mobile-nav">
-      <img src="/images/text/koyuki_red.png" alt="koyuki">
+      <img src="/images/text/koyuki_red.webp" alt="koyuki" fetchpriority="high">
       <ul class="mobile-nav-links">
         <li><a href="/">work</a></li>
         <li><a href="/commissions/">hire me</a></li>
@@ -171,7 +172,7 @@
             data-desc="Character created for JAMN's 'Macaroni' single promotion. Designed three poses to be used across social media and merch — the brief was loose and we developed the character's personality together over a few rounds."
             data-images='["/images/mac_guitar_transparent.png","/images/mac_handhold_transparent.PNG","/images/mac_surfer_transparent.png"]'>
             <div class="item-img">
-              <img src="/images/mac_guitar_transparent.png" alt="Macaroni character">
+              <img src="/images/mac_guitar_transparent.webp" alt="Macaroni character">
             </div>
             <div class="item-caption"><span class="caption-title">Macaroni</span><span class="caption-meta">Character design · 2025</span></div>
           </div> -->
@@ -180,14 +181,14 @@
             data-title="Cows"
             data-info="Single cover · Digital · 2026"
             data-desc="Single cover for Bonkonomics. Brief was simple: the Magic School Bus + cows in space!">
-            <div class="item-img"><img loading="lazy" src="/images/bonk_cow_cover.PNG" alt="Bonk single cover"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/bonk_cow_cover.webp" alt="Bonk single cover"></div>
             <div class="item-caption"><span class="caption-title">Cows</span><span class="caption-meta">Single cover · 2026 · Commission</span></div>
           </div>
 
           <div class="item" data-medium="print" data-year="2025"
             data-title="Bonk at Nectar" 
             data-info="Show poster · Digital · 2025">
-            <div class="item-img"><img loading="lazy" src="/images/2026_02_17_bonk_at_nectar.PNG" alt="Bonk Nectar poster"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/2026_02_17_bonk_at_nectar.webp" alt="Bonk Nectar poster"></div>
             <div class="item-caption"><span class="caption-title">Bonkonomics at Nectar</span><span class="caption-meta">Show poster · 2025 · Commission</span></div>
           </div>
 
@@ -195,7 +196,7 @@
             data-title="JAMN at Barboza"
             data-info="Show poster · Digital · 2025"
             data-desc="Poster for JAMN's Barboza show. Worked with JAMN's existing design language - colors, assets, fonts.">
-            <div class="item-img"><img loading="lazy" src="/images/2026_01_17_jamn_barboza.PNG" alt="JAMN Barboza poster"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/2026_01_17_jamn_barboza.webp" alt="JAMN Barboza poster"></div>
             <div class="item-caption"><span class="caption-title">JAMN at Barboza</span><span class="caption-meta">Show poster · 2025 · Commission</span></div>
           </div>
 
@@ -203,27 +204,27 @@
             data-title="Heavy Bloom at Sunset" 
             data-info="Show poster · Digital · 2025"
             data-desc="For Heavy Bloom's single release show. Brief: 90s inspired! Leaned heavily into bright colors.">
-            <div class="item-img"><img loading="lazy" src="/images/2026_01_23_sunset_heavy_bloom.png" alt="Heavy Bloom Sunset poster"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/2026_01_23_sunset_heavy_bloom.webp" alt="Heavy Bloom Sunset poster"></div>
             <div class="item-caption"><span class="caption-title">Heavy Bloom at Sunset Tavern</span><span class="caption-meta">Show poster · 2025 · Commission</span></div>
           </div>
 
           <div class="item" data-medium="print" data-year="2025"
             data-title="JAMN at Tim's Tavern" data-info="Show poster · Digital · 2025">
-            <div class="item-img"><img loading="lazy" src="/images/09_30_2025_jamn_oktiger_logo.PNG" alt="JAMN OK Tiger poster"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/09_30_2025_jamn_oktiger_logo.webp" alt="JAMN OK Tiger poster"></div>
             <div class="item-caption"><span class="caption-title">JAMN at Tim's Tavern</span><span class="caption-meta">Show poster · 2025 · Commission</span></div>
           </div>
 
           <div class="item" data-medium="print" data-year="2025"
             data-title="Bonk at Hidden Hall" data-info="Show poster · Digital · 2025"
             data-desc="My first poster commission!">
-            <div class="item-img"><img loading="lazy" src="/images/10_9_25_hidden_hall_poster.png" alt="Bonk Hidden Hall poster"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/10_9_25_hidden_hall_poster.webp" alt="Bonk Hidden Hall poster"></div>
             <div class="item-caption"><span class="caption-title">Bonkonomics at Hidden Hall</span><span class="caption-meta">Show poster · 2025 · Commission</span></div>
           </div>
 
           <div class="item" data-medium="print" data-year="2025"
             data-title="Tipping the Scale" data-info="Single cover · Digital · 2025"
             data-desc="Single cover for Matt Unger's release 'Tipping the Scale.' Brief: Justice holding a scale, with Matt on one side and the world in the other, all in black and white.">
-            <div class="item-img"><img loading="lazy" src="/images/tipping_the_scales.png" alt="Matt single cover digital"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/tipping_the_scales.webp" alt="Matt single cover digital"></div>
             <div class="item-caption"><span class="caption-title">Tipping the Scale</span><span class="caption-meta">Single cover · 2025 · Commission</span></div>
           </div>
 
@@ -237,47 +238,47 @@
         <div class="grid">
 
           <div class="item" data-medium="painting" data-year="2025" data-title="Tomato Town" data-info="Watercolor · 2025">
-            <div class="item-img"><img loading="lazy" src="/images/tomato_town.jpeg" alt="Watercolor of tomatoes"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/tomato_town.webp" alt="Watercolor of tomatoes"></div>
             <div class="item-caption"><span class="caption-title">Tomato Town</span><span class="caption-meta">Watercolor · 2025</span></div>
           </div>
 
           <div class="item" data-medium="painting" data-year="2025" data-title="Matt's Hole" data-info="Watercolor · 2025">
-            <div class="item-img"><img loading="lazy" src="/images/matt_hole.jpg" alt="Watercolor of Matt's hole"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/matt_hole.webp" alt="Watercolor of Matt's hole"></div>
             <div class="item-caption"><span class="caption-title">Matt's Hole</span><span class="caption-meta">Watercolor · 2025</span></div>
           </div>
 
           <div class="item" data-medium="painting" data-year="2025" data-title="Nicole" data-info="Watercolor · 2025">
-            <div class="item-img"><img loading="lazy" src="/images/nicole.jpg" alt="Watercolor of Nicole"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/nicole.webp" alt="Watercolor of Nicole"></div>
             <div class="item-caption"><span class="caption-title">Nicole</span><span class="caption-meta">Watercolor · 2025</span></div>
           </div>
 
           <div class="item" data-medium="painting" data-year="2025" data-title="Matt's Bathroom" data-info="Acrylic · 2025">
-            <div class="item-img"><img loading="lazy" src="/images/matt_bathroom.jpg" alt="Acrylic of Matt's bathroom"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/matt_bathroom.webp" alt="Acrylic of Matt's bathroom"></div>
             <div class="item-caption"><span class="caption-title">Matt's Bathroom</span><span class="caption-meta">Acrylic · 2025</span></div>
           </div>
 
           <div class="item" data-medium="painting" data-year="2025" data-title="Cherry Duck" data-info="Acrylic · 2025">
-            <div class="item-img"><img loading="lazy" src="/images/cherry_duck.jpg" alt="Acrylic duck"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/cherry_duck.webp" alt="Acrylic duck"></div>
             <div class="item-caption"><span class="caption-title">Cherry Duck</span><span class="caption-meta">Acrylic · 2025</span></div>
           </div>
 
           <div class="item" data-medium="painting" data-year="2025" data-title="Korean Food" data-info="Watercolor · 2025">
-            <div class="item-img"><img loading="lazy" src="/images/korean.jpg" alt="Watercolor of Korean food"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/korean.webp" alt="Watercolor of Korean food"></div>
             <div class="item-caption"><span class="caption-title">Korean Food</span><span class="caption-meta">Watercolor · 2025</span></div>
           </div>
 
           <div class="item" data-medium="painting" data-year="2024" data-title="Dango" data-info="Watercolor · 2024">
-            <div class="item-img"><img loading="lazy" src="/images/dango.jpg" alt="Watercolor of dango"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/dango.webp" alt="Watercolor of dango"></div>
             <div class="item-caption"><span class="caption-title">Dango</span><span class="caption-meta">Watercolor · 2024</span></div>
           </div>
 
           <div class="item" data-medium="painting" data-year="2023" data-title="Cranes" data-info="Acrylic · 2023">
-            <div class="item-img"><img loading="lazy" src="/images/cranes.jpg" alt="Acrylic cranes"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/cranes.webp" alt="Acrylic cranes"></div>
             <div class="item-caption"><span class="caption-title">Cranes</span><span class="caption-meta">Acrylic · 2023</span></div>
           </div>
 
           <div class="item" data-medium="painting" data-year="2023" data-title="Duck" data-info="Acrylic · 2023">
-            <div class="item-img"><img loading="lazy" src="/images/duck.jpg" alt="Acrylic duck"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/duck.webp" alt="Acrylic duck"></div>
             <div class="item-caption"><span class="caption-title">Duck</span><span class="caption-meta">Acrylic · 2023</span></div>
           </div>
 
@@ -291,27 +292,27 @@
         <div class="grid">
 
           <div class="item" data-medium="drawing" data-year="2025" data-title="Matt" data-info="Graphite · 2025">
-            <div class="item-img"><img loading="lazy" src="/images/matt.jpg" alt="Graphite of Matt"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/matt.webp" alt="Graphite of Matt"></div>
             <div class="item-caption"><span class="caption-title">Matt</span><span class="caption-meta">Graphite · 2025 · Commission</span></div>
           </div>
 
           <div class="item" data-medium="drawing" data-year="2024" data-title="Figure Drawing" data-info="Graphite · 2024">
-            <div class="item-img"><img loading="lazy" src="/images/fig.jpg" alt="Graphite figure drawing"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/fig.webp" alt="Graphite figure drawing"></div>
             <div class="item-caption"><span class="caption-title">Figure Drawing</span><span class="caption-meta">Graphite · 2024</span></div>
           </div>
 
           <div class="item" data-medium="drawing" data-year="2024" data-title="Nun" data-info="Graphite · 2024">
-            <div class="item-img"><img loading="lazy" src="/images/nun.jpg" alt="Graphite nun"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/nun.webp" alt="Graphite nun"></div>
             <div class="item-caption"><span class="caption-title">Nun</span><span class="caption-meta">Graphite · 2024</span></div>
           </div>
 
           <!-- <div class="item" data-medium="drawing" data-year="2024" data-title="Portrait" data-info="Graphite &amp; charcoal · 2024">
-            <div class="item-img"><img loading="lazy" src="/images/portrait.jpg" alt="Graphite/charcoal figure drawing"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/portrait.webp" alt="Graphite/charcoal figure drawing"></div>
             <div class="item-caption"><span class="caption-title">Portrait</span><span class="caption-meta">Graphite &amp; charcoal · 2024</span></div>
           </div>
 
           <div class="item" data-medium="drawing" data-year="2024" data-title="Bug" data-info="Graphite · 2024">
-            <div class="item-img"><img loading="lazy" src="/images/bug.jpg" alt="Graphite bug"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/bug.webp" alt="Graphite bug"></div>
             <div class="item-caption"><span class="caption-title">Bug</span><span class="caption-meta">Graphite · 2024</span></div>
           </div> -->
 
@@ -321,7 +322,7 @@
             data-desc="Doodling in local cafes."
             data-images='["/images/cafe1.jpg","/images/cafe2.jpg","/images/cafe3.jpg","/images/cafe4.jpg","/images/cafe5.jpg","/images/cafe6.jpg"]'>
             <div class="item-img">
-              <img src="/images/cafe1.jpg" alt="Cafe doodles">
+              <img src="/images/cafe1.webp" alt="Cafe doodles">
             </div>
             <div class="item-caption"><span class="caption-title">Cafe Doodles</span><span class="caption-meta">Pencil · 2025</span></div>
           </div> -->
@@ -338,19 +339,19 @@
           <div class="item" data-medium="card-alters" data-year="2025"
             data-title="Meditation Puzzle" data-info="MTG card alter · 2025"
             data-desc="The first alter I ever did.">
-            <div class="item-img"><img loading="lazy" src="/images/mtg_meditation_puzzle.PNG" alt="MTG alter: Meditation Puzzle"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/mtg_meditation_puzzle.webp" alt="MTG alter: Meditation Puzzle"></div>
             <div class="item-caption"><span class="caption-title">Meditation Puzzle</span><span class="caption-meta">MTG alter · 2025</span></div>
           </div>
 
           <div class="item" data-medium="card-alters" data-year="2025"
             data-title="Naturalize" data-info="MTG card alter · 2025">
-            <div class="item-img"><img loading="lazy" src="/images/mtg_naturalize.PNG" alt="MTG alter: Naturalize"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/mtg_naturalize.webp" alt="MTG alter: Naturalize"></div>
             <div class="item-caption"><span class="caption-title">Naturalize</span><span class="caption-meta">MTG alter · 2025</span></div>
           </div>
 
           <div class="item" data-medium="card-alters" data-year="2025"
             data-title="Quickling" data-info="MTG card alter · 2025">
-            <div class="item-img"><img loading="lazy" src="/images/mtg_quickling.PNG" alt="MTG alter: Quickling"></div>
+            <div class="item-img"><img loading="lazy" decoding="async" src="/images/mtg_quickling.webp" alt="MTG alter: Quickling"></div>
             <div class="item-caption"><span class="caption-title">Quickling</span><span class="caption-meta">MTG alter · 2025</span></div>
           </div>
 
