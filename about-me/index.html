@@ -5,23 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>koyuki — about</title>
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/about.css">
   <link rel="preload" as="image" href="/images/text/koyuki_red.webp">
-  <style>
-    .page-inner { max-width: 720px; padding: 72px 56px 100px; }
-    .page-title { margin-bottom: 48px; }
-
-    .bio { display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: start; margin-bottom: 56px; }
-    .bio-text p { font-size: 15px; line-height: 1.75; color: var(--ink); margin-bottom: 16px; }
-    .bio-text p:last-child { margin-bottom: 0; }
-    .bio-image { position: sticky; top: 32px; }
-    .bio-image img { display: block; width: 100%; height: auto; background: var(--muted-bg); }
-
-    @media (max-width: 768px) {
-      .page-inner { padding: 40px 20px 80px; }
-      .bio { grid-template-columns: 1fr; }
-      .bio-image { position: static; max-width: 180px; }
-    }
-  </style>
 </head>
 <body>
 
@@ -71,13 +56,6 @@
     </div>
   </main>
 
-  <script>
-        const path = window.location.pathname;
-    document.querySelectorAll('.sidebar-nav a, .mobile-nav-links a').forEach(a => {
-      const href = a.getAttribute('href');
-      const active = href === '/' ? (path === '/' || path === '/index.html') : path.startsWith(href);
-      a.classList.toggle('active', active);
-    });
-  </script>
+  <script src="/nav.js"></script>
 </body>
 </html>

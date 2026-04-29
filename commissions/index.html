@@ -5,27 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>koyuki — hire me</title>
   <link rel="stylesheet" href="/style.css">
-  <style>
-    .page-inner { max-width: 680px; padding: 72px 56px 100px; }
-    .page-title { margin-bottom: 16px; }
-    .page-intro { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 56px; max-width: 480px; }
-
-    .services-heading { font-family: var(--serif); font-size: 22px; font-weight: 400; font-style: italic; color: var(--ink); margin-bottom: 24px; }
-    .service-list { list-style: none; border-top: 1px solid var(--border); }
-    .service-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
-    .service-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
-    .service-name { font-size: 16px; font-weight: 500; color: var(--ink); }
-    .service-tag { font-size: 11px; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; flex-shrink: 0; }
-    .service-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 6px; }
-
-    .process { margin-top: 56px; padding: 32px; background: var(--muted-bg); }
-    .process-heading { font-family: var(--serif); font-size: 20px; font-weight: 400; font-style: italic; margin-bottom: 12px; }
-    .process-body { font-size: 14px; color: var(--ink); line-height: 1.75; }
-
-    @media (max-width: 768px) {
-      .page-inner { padding: 40px 20px 80px; }
-    }
-  </style>
+  <link rel="stylesheet" href="/commissions.css">
 </head>
 <body>
 
@@ -115,14 +95,7 @@
     </div>
   </main>
 
-  <script>
-        const path = window.location.pathname;
-    document.querySelectorAll('.sidebar-nav a, .mobile-nav-links a').forEach(a => {
-      const href = a.getAttribute('href');
-      const active = href === '/' ? (path === '/' || path === '/index.html') : path.startsWith(href);
-      a.classList.toggle('active', active);
-    });
-  </script>
+  <script src="/nav.js"></script>
 
 </body>
 </html>
