@@ -12,3 +12,8 @@ To test locally,
 To convert to webp format,
 
 `cwebp <input_image.ext> -o <output_image.webp>` 
+
+### TODO:
+- [ ] Break out single covers into separate section from posters 
+- [ ] Allow links in item descriptions, ie links/embeds to Spotify
+- [ ] Before and after sliders for card alters
